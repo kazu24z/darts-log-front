@@ -1,13 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Dummy from '../views/Dummy.vue'
+import Home from '@/views/Home.vue'
+import CountUp from '@/views/CountUp.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/dummy',
-      name: 'dummy',
-      component: Dummy
+      path: '/home',
+      name: 'home',
+      component: Home
+    },
+    {
+      path: '/count-up',
+      name: 'count-up',
+      component: CountUp
     }
   ]
 })
