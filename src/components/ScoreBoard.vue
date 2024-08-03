@@ -6,7 +6,8 @@
   </div>
   <div class="grid mx-1 mt-4 sm:mt-6 sm:text-[20px]">
     <div class="score lg:col-start-2 lg:self-center">
-      <Score />
+      <!-- TODO: :score置き換え-->
+      <Score :type="gameView.score" :score="100" />
     </div>
     <div class="round w-full mt-4 sm:mt-10 lg:mt-0 lg:col-start-1 lg:row-start-1 lg:row-span-3">
       <RoundTable />

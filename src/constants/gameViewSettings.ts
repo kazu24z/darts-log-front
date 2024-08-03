@@ -1,8 +1,10 @@
+export type ViewType = 'Standard' | 'Cricket'
+
 export interface GameView {
   roundNumber: number
-  roundScore: 'Standard' | 'Cricket'
-  score: 'Standard' | 'Cricket'
-  inputButton: 'Standard' | 'Cricket'
+  roundScore: ViewType
+  score: ViewType
+  inputButton: ViewType
 }
 
 export interface GameViewSettings {
