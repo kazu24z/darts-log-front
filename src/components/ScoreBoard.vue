@@ -6,8 +6,7 @@
   </div>
   <div class="grid mx-1 mt-4 sm:mt-6 sm:text-[20px]">
     <div class="score lg:col-start-2 lg:self-center">
-      <!-- TODO: :score置き換え-->
-      <Score :type="gameView.score" :score="100" />
+      <Score :total-score="totalScore" />
     </div>
     <div class="round w-full mt-4 sm:mt-10 lg:mt-0 lg:col-start-1 lg:row-start-1 lg:row-span-3">
       <RoundTable />
@@ -27,14 +26,15 @@ import RoundTable from '@/components/common/parts/RoundTable.vue'
 import ScoreInputButtons from '@/components/common/parts/ScoreInputButtons.vue'
 import Score from '@/components/common/parts/Score.vue'
 import GameOptionDisplay from '@/components/common/parts/GameOptionDisplay.vue'
-import type { GameView } from '@/constants/gameViewSettings'
+import type { GameSetting } from '@/constants/gameSettings'
 import type { GameName } from '@/constants/gameNames'
 import type { GameOption } from '@/constants/gameOptions'
 
 export interface Props {
   gameName: GameName
-  gameView: GameView
+  gameSetting: GameSetting
   gameOption: GameOption
+  totalScore: number
 }
 
 const props = defineProps<Props>()
