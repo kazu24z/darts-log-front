@@ -49,7 +49,7 @@
       Next Round
     </button>
     <button
-      @click="clearGame"
+      @click="isModalOpen = true"
       class="col-span-2 p-4 bg-blue-500 text-white rounded active:scale-90"
       :class="disabledClass"
       :disabled="isGameOver"
@@ -64,12 +64,26 @@
     >
       Miss
     </button>
+    <BaseModal
+      v-if="isModalOpen"
+      @no-action="handleCancel"
+      @yes-action="handleClear"
+      :title="`Clear Score?`"
+      :message="MESSAGES.CLEAR_CONFIRM"
+      :no-button="`Cancel`"
+      :yes-button="`Clear Score`"
+      :yes-button-color="`red`"
+    ></BaseModal>
   </div>
 </template>
 <script setup lang="ts">
-import { useRoundAndScoreStore } from '@/stores/roundAndScores'
+import BaseModal from '@/components/common/parts/BaseModal.vue'
+
 import { storeToRefs } from 'pinia'
 import { computed, ref } from 'vue'
+
+import { useRoundAndScoreStore } from '@/stores/roundAndScores'
+import { MESSAGES } from '@/constants/messages'
 
 interface Props {
   bullOption: string
@@ -141,12 +155,24 @@ const backTheTrow = () => {
   scoreStore.backTheThrow()
 }
 
+const isModalOpen = ref(false)
+const isClearConfirmed = ref(false)
+const handleCancel = () => {
+  isModalOpen.value = false
+}
+const handleClear = () => {
+  isClearConfirmed.value = true
+  clearGame()
+}
 const clearGame = () => {
-  // TODO: 確認モーダルの表示
-  scoreStore.clearGame()
+  if (isClearConfirmed.value) {
+    scoreStore.clearGame()
+    isClearConfirmed.value = false
+    isModalOpen.value = false
+  }
 }
 
-// used for styling
+// --- for styling ---
 const disabledClass = computed(() => ({
   'opacity-50 cursor-not-allowed active:scale-100': isGameOver.value
 }))
