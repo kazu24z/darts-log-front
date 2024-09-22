@@ -9,7 +9,7 @@
 
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
-import { computed, onMounted, watchEffect } from 'vue'
+import { computed, onMounted, ref, watchEffect } from 'vue'
 import { useRoundAndScoreStore } from '@/stores/roundAndScores'
 
 import ScoreBoard from '@/components/ScoreBoard.vue'
@@ -19,7 +19,10 @@ import { GameOptions } from '@/constants/gameOptions'
 
 const route = useRoute()
 type gameType = '301' | '501' | '701'
-const queryParam: gameType = route.query.game as gameType
+const queryParam = ref<gameType>('501')
+watchEffect(() => {
+  queryParam.value = route.query.game as gameType
+})
 
 const ZeroOhOneNames = {
   '301': GameNames.ThreeOhOne,
@@ -34,11 +37,11 @@ const ZeroOhOneSettings = {
 }
 
 const getGameName = (): GameName => {
-  return ZeroOhOneNames[queryParam] || ZeroOhOneNames['501']
+  return ZeroOhOneNames[queryParam.value] || ZeroOhOneNames['501']
 }
 
 const getGameSetting = (): GameSetting => {
-  return ZeroOhOneSettings[queryParam] || ZeroOhOneSettings['501']
+  return ZeroOhOneSettings[queryParam.value] || ZeroOhOneSettings['501']
 }
 
 const roundAndScoreStore = useRoundAndScoreStore()

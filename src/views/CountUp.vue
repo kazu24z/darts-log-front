@@ -1,10 +1,12 @@
 <template>
-  <ScoreBoard
-    :game-name="GameNames.CountUP"
-    :game-setting="GameSettings.CountUp"
-    :game-option="GameOptions.CountUp"
-    :total-score="totalScore"
-  />
+  <div>
+    <ScoreBoard
+      :game-name="GameNames.CountUP"
+      :game-setting="GameSettings.CountUp"
+      :game-option="GameOptions.CountUp"
+      :total-score="totalScore"
+    />
+  </div>
 </template>
 
 <script setup lang="ts">
