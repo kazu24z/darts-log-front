@@ -4,7 +4,7 @@
       <h2 class="text-xl sm:text-3xl">{{ gameName }}</h2>
     </div>
   </div>
-  <div class="grid mx-1 mt-4 sm:mt-6 sm:text-[20px]">
+  <div class="grid mx-1 mt-4 sm:mt-6 sm:text-xl">
     <div class="score lg:col-start-2 lg:self-center">
       <Score :total-score="totalScore" />
     </div>
