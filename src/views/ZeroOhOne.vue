@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import { useRoute } from 'vue-router'
+import { onBeforeRouteUpdate, useRoute } from 'vue-router'
 import { computed, onMounted, ref, watchEffect } from 'vue'
 import { useRoundAndScoreStore } from '@/stores/roundAndScores'
 
@@ -19,11 +19,19 @@ import { GameSettings, type GameSetting } from '@/constants/gameSettings'
 import { GameNames, type GameName } from '@/constants/gameNames'
 import { GameOptions } from '@/constants/gameOptions'
 
+const roundAndScoreStore = useRoundAndScoreStore()
 const route = useRoute()
 type gameType = '301' | '501' | '701'
 const queryParam = ref<gameType>('501')
 watchEffect(() => {
   queryParam.value = route.query.game as gameType
+})
+
+onBeforeRouteUpdate((to, from, next) => {
+  if (to.fullPath !== from.fullPath) {
+    roundAndScoreStore.clearGame()
+  }
+  next()
 })
 
 const ZeroOhOneNames = {
@@ -46,7 +54,6 @@ const getGameSetting = (): GameSetting => {
   return ZeroOhOneSettings[queryParam.value] || ZeroOhOneSettings['501']
 }
 
-const roundAndScoreStore = useRoundAndScoreStore()
 const totalScore = computed(() => {
   return getGameSetting().initialValue - roundAndScoreStore.roundsSum
 })
