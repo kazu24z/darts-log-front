@@ -1,7 +1,7 @@
 <template>
   <div class="game-name flex mt-2 lg:mt-4">
     <div class="mx-auto lg:mx-20">
-      <h2 class="text-xl sm:text-3xl">{{ gameName }}</h2>
+      <h2 class="text-xl sm:text-3xl">【 {{ gameName }} 】</h2>
     </div>
   </div>
   <div class="grid mx-1 mt-4 sm:mt-6 sm:text-xl">

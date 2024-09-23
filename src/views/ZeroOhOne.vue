@@ -1,10 +1,12 @@
 <template>
-  <ScoreBoard
-    :game-name="getGameName()"
-    :game-setting="getGameSetting()"
-    :game-option="GameOptions.ZeroOne"
-    :total-score="totalScore"
-  />
+  <div>
+    <ScoreBoard
+      :game-name="getGameName()"
+      :game-setting="getGameSetting()"
+      :game-option="GameOptions.ZeroOne"
+      :total-score="totalScore"
+    />
+  </div>
 </template>
 
 <script setup lang="ts">
