@@ -16,13 +16,13 @@
       <span>01 Game</span>
       <ul class="ml-4 text-lg">
         <li>
-          <router-link :to="{ name: 'zero-oh-one', query: { game: 301 } }">- 301</router-link>
+          <RouterLink :to="{ name: 'zero-oh-one', query: { game: 301 } }">- 301</RouterLink>
         </li>
         <li>
-          <router-link :to="{ name: 'zero-oh-one', query: { game: 501 } }">- 501</router-link>
+          <RouterLink :to="{ name: 'zero-oh-one', query: { game: 501 } }">- 501</RouterLink>
         </li>
         <li>
-          <router-link :to="{ name: 'zero-oh-one', query: { game: 701 } }">- 701</router-link>
+          <RouterLink :to="{ name: 'zero-oh-one', query: { game: 701 } }">- 701</RouterLink>
         </li>
       </ul>
     </div>

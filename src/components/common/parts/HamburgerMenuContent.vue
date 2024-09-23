@@ -14,15 +14,15 @@
       <div class="w-full flex mt-4 flex-col text-gray-100">
         <label class="text-lg text-gray-300 mb-1">01 Game</label>
         <ul class="text-2xl">
-          <router-link :to="{ name: 'zero-oh-one', query: { game: 301 } }" @click="onClick">
+          <RouterLink :to="{ name: 'zero-oh-one', query: { game: 301 } }" @click="onClick">
             <li class="mb-1">301</li>
-          </router-link>
-          <router-link :to="{ name: 'zero-oh-one', query: { game: 501 } }" @click="onClick">
+          </RouterLink>
+          <RouterLink :to="{ name: 'zero-oh-one', query: { game: 501 } }" @click="onClick">
             <li class="mb-1">501</li>
-          </router-link>
-          <router-link :to="{ name: 'zero-oh-one', query: { game: 701 } }" @click="onClick">
+          </RouterLink>
+          <RouterLink :to="{ name: 'zero-oh-one', query: { game: 701 } }" @click="onClick">
             <li class="mb-1">701</li>
-          </router-link>
+          </RouterLink>
         </ul>
       </div>
       <div class="w-full flex mt-4 flex-col text-gray-100">

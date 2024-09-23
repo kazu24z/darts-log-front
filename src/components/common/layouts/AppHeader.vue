@@ -4,8 +4,8 @@
     <p class="self-center ml-3 sm:ml-6 font-bold text-gray-100 text-xl sm:text-3xl">Darts Log</p>
     <div v-if="props.isLogin" class="ml-auto self-center mr-2 sm:mr-10">
       <nav class="flex items-center gap-x-4 text-gray-100 sm:text-lg">
-        <router-link to="/settings">Settings</router-link>
-        <router-link to="/logout">Logout</router-link>
+        <RouterLink to="/settings">Settings</RouterLink>
+        <RouterLink to="/logout">Logout</RouterLink>
         <HamburgerMenuButton
           v-show="isMobile"
           @menu-click="toggleMenuVisibility"
